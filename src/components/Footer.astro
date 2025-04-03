@@ -1,12 +1,15 @@
 ---
-import Container from "./Container.astro";
+import Container from './Container.astro';
+
+const currentYear = new Date().getFullYear();
+const yearString = currentYear === 2025 ? '2025' : `2025 - ${currentYear}`;
 ---
 
-<footer class="py-4">
+<footer class='py-4'>
   <Container>
-    <div class="flex justify-center items-center">
-      <div class="text-primary/80 text-sm">
-        Copyright &copy; 2025 Ajunie's Shithole, All Rights Reserved.
+    <div class='flex items-center justify-center'>
+      <div class='text-primary/80 text-sm'>
+        Copyright &copy; {yearString} Ajunie Zeng. All Rights Reserved.
       </div>
     </div>
   </Container>
