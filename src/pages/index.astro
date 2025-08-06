@@ -1,29 +1,33 @@
 ---
 import Container from '@/components/Container.astro';
+import Paragraph from '@/components/Paragraph.astro';
+import Title from '@/components/Title.astro';
 import { SITE } from '@/constants';
 import Layout from '@/layouts/Layout.astro';
-import Image from 'astro/components/Image.astro';
 ---
 
 <Layout title='Home' description={SITE.DESCRIPTION}>
   <Container>
-    <div class='flex justify-center'>
-      <div class='flex w-full flex-col items-center'>
-        <div
-          class='flex items-center justify-center overflow-hidden rounded-full'
-        >
-          <Image
-            src='https://github.com/ajuniezeng.png'
-            alt='Avatar'
-            width={80}
-            height={80}
-          />
-        </div>
-      </div>
-      <div class='w-full'>
-        <p>Hello, I'm</p>
-        Ajunie
+    <div class='flex items-baseline justify-items-start gap-2 text-2xl'>
+      <h1>👋</h1>
+      <div class='mt-2 mb-10 flex flex-col gap-2 font-bold'>
+        <p>Hello, Guten Tag, 你好，</p>
+        <p>
+          I'm <span class='name font-sans text-3xl text-blue-500 italic'
+            >Ajunie Zeng</span
+          >.
+        </p>
       </div>
     </div>
   </Container>
 </Layout>
+
+<style>
+  .name {
+    text-decoration: underline;
+    text-decoration-color: var(--color-blue-100);
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 0.6em;
+    text-underline-offset: -0.35em;
+  }
+</style>

@@ -2,29 +2,27 @@
 import Container from '@/components/Container.astro';
 import Link from './Link.astro';
 import Image from 'astro/components/Image.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
-<header
-  class='sticky top-0 z-10 backdrop-blur-md'
-  transition:persist
->
+<header class='sticky top-0 z-10 backdrop-blur-md' transition:persist>
   <Container>
     <div class='flex items-center justify-between gap-4 py-4'>
-      <Link href='/' underline={false}>
-        <div class='flex items-center gap-2 px-2'>
-          <div class='flex items-center overflow-hidden rounded-full'>
-            <Image
-              src='https://github.com/ajuniezeng.png'
-              alt='Avatar'
-              width={35}
-              height={35}
-            />
-          </div>
-          <div class='font-semibold'>Ajunie's Shithole</div>
+      <Link
+        href='/'
+        underline={false}
+        subClass='hover:bg-amber-100 rounded-sm p-2'
+      >
+        <div class='flex items-center gap-2'>
+          <Icon name='material-symbols:home-outline-rounded' size={26} />
         </div>
       </Link>
       <nav class='flex items-center justify-between gap-4 px-2'>
-        <Link href='/blog' underline={false}>Blog</Link>
+        <Link
+          href='/archive'
+          underline={false}
+          subClass='hover:bg-amber-100 rounded-sm px-4 py-2'>Archive</Link
+        >
       </nav>
     </div>
   </Container>
