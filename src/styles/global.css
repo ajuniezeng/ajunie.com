@@ -6,6 +6,13 @@
   --font-noto-serif: 'Noto Serif', 'Noto Serif SC';
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 ::selection {
   background-color: var(--color-amber-100);
+}
+
+/* Dark mode selection */
+.dark ::selection {
+  background-color: var(--color-blue-900);
 }

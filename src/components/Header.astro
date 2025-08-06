@@ -1,17 +1,21 @@
 ---
 import Container from '@/components/Container.astro';
 import Link from './Link.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import Image from 'astro/components/Image.astro';
 import { Icon } from 'astro-icon/components';
 ---
 
-<header class='sticky top-0 z-10 backdrop-blur-md' transition:persist>
+<header
+  class='sticky top-0 z-10 bg-neutral-50/80 backdrop-blur-md dark:bg-gray-900/80'
+  transition:persist
+>
   <Container>
     <div class='flex items-center justify-between gap-4 py-4'>
       <Link
         href='/'
         underline={false}
-        subClass='hover:bg-amber-100 rounded-sm p-2'
+        subClass='hover:bg-amber-100 dark:hover:bg-amber-900/30 rounded-sm p-2'
       >
         <div class='flex items-center gap-2'>
           <Icon name='material-symbols:home-outline-rounded' size={26} />
@@ -21,8 +25,10 @@ import { Icon } from 'astro-icon/components';
         <Link
           href='/archive'
           underline={false}
-          subClass='hover:bg-amber-100 rounded-sm px-4 py-2'>Archive</Link
+          subClass='hover:bg-amber-100 dark:hover:bg-amber-900/30 rounded-sm px-4 py-2'
+          >Archive</Link
         >
+        <ThemeToggle />
       </nav>
     </div>
   </Container>

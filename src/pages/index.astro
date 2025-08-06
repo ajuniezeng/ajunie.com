@@ -1,7 +1,5 @@
 ---
 import Container from '@/components/Container.astro';
-import Paragraph from '@/components/Paragraph.astro';
-import Title from '@/components/Title.astro';
 import { SITE } from '@/constants';
 import Layout from '@/layouts/Layout.astro';
 ---
@@ -13,7 +11,8 @@ import Layout from '@/layouts/Layout.astro';
       <div class='mt-2 mb-10 flex flex-col gap-2 font-bold'>
         <p>Hello, Guten Tag, 你好，</p>
         <p>
-          I'm <span class='name font-sans text-3xl text-blue-500 italic'
+          I'm <span
+            class='name font-sans text-3xl text-blue-500 italic underline decoration-amber-100! dark:text-amber-300 dark:decoration-blue-900!'
             >Ajunie Zeng</span
           >.
         </p>
@@ -24,8 +23,6 @@ import Layout from '@/layouts/Layout.astro';
 
 <style>
   .name {
-    text-decoration: underline;
-    text-decoration-color: var(--color-blue-100);
     text-decoration-skip-ink: none;
     text-decoration-thickness: 0.6em;
     text-underline-offset: -0.35em;
