@@ -1,0 +1,14 @@
+---
+import Container from '@/components/Container.astro';
+import Title from '@/components/Title.astro';
+import { SITE } from '@/constants';
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title='404 Not Found' description={SITE.DESCRIPTION}>
+  <Container>
+    <div class='flex min-h-[80vh] flex-col items-center justify-center'>
+      <Title>Code: 404, Mission Failed. <br />What are you doing here?</Title>
+    </div>
+  </Container>
+</Layout>

@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 ---
 
-<div class='theme-toggle'>
+<div class='relative'>
   <button
     id='theme-toggle'
     class='flex h-8 w-8 cursor-pointer items-center justify-center rounded-sm transition-colors hover:bg-amber-100 dark:hover:bg-amber-900/30'
@@ -138,9 +138,3 @@ import { Icon } from 'astro-icon/components';
       });
   });
 </script>
-
-<style>
-  .theme-toggle {
-    position: relative;
-  }
-</style>
