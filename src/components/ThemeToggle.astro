@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon/components';
 <div class='relative'>
   <button
     id='theme-toggle'
-    class='flex h-8 w-8 cursor-pointer items-center justify-center rounded-sm transition-colors hover:bg-amber-100 dark:hover:bg-amber-900/30'
+    class='flex cursor-pointer items-center justify-center rounded-sm p-2 transition-colors duration-300 ease-in-out hover:bg-amber-100 dark:hover:bg-amber-900/30'
     aria-label='Toggle theme'
     title='Toggle theme'
   >
@@ -31,25 +31,25 @@ import { Icon } from 'astro-icon/components';
 
   <div
     id='theme-menu'
-    class='absolute top-12 right-0 z-50 hidden min-w-[120px] rounded-md border border-gray-200 bg-white py-1 font-sans shadow-lg dark:border-gray-700 dark:bg-gray-800'
+    class='absolute top-12 right-0 z-50 hidden min-w-[120px] rounded-md border border-gray-200 bg-white px-1 py-1 font-sans shadow-lg dark:border-gray-700 dark:bg-gray-800'
   >
     <button
       data-theme='light'
-      class='flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700'
+      class='flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm hover:bg-amber-100 dark:hover:bg-amber-900/30'
     >
       <Icon name='material-symbols:light-mode-outline' size={16} />
       Light
     </button>
     <button
       data-theme='dark'
-      class='flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700'
+      class='flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm hover:bg-amber-100 dark:hover:bg-amber-900/30'
     >
       <Icon name='material-symbols:dark-mode-outline' size={16} />
       Dark
     </button>
     <button
       data-theme='system'
-      class='flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700'
+      class='flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm hover:bg-amber-100 dark:hover:bg-amber-900/30'
     >
       <Icon name='material-symbols:computer-outline' size={16} />
       System
