@@ -23,8 +23,8 @@
 
   /* Accent system: light uses amber, dark uses blue */
   --color-accent: var(--color-amber-700);
-  --color-accent-contrast: var(--color-amber-50);
-  --color-accent-soft: var(--color-amber-50);
+  --color-accent-contrast: var(--color-amber-100);
+  --color-accent-soft: var(--color-amber-100);
   --color-accent-underline: var(--color-amber-200);
   --color-accent-underline-hover: var(--color-amber-300);
 

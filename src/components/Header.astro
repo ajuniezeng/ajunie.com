@@ -12,22 +12,81 @@ import { Icon } from 'astro-icon/components';
 >
   <Container>
     <div class='flex items-center justify-between gap-4 py-4'>
-      <Link
-        href='/'
-        underline={false}
-        subClass='rounded-sm p-2 hover:bg-[var(--color-accent-soft)]'
-      >
-        <div class='flex items-center gap-2'>
-          <Icon name='material-symbols:home-outline-rounded' size={24} />
-        </div>
-      </Link>
-      <nav class='flex items-center justify-between gap-4 px-2'>
+      <nav class='flex items-center justify-between gap-3 px-2'>
+        <Link
+          href='/'
+          underline={false}
+          subClass='rounded-sm p-2 hover:bg-[var(--color-accent-soft)]'
+          aria-label="Index"
+        >
+          <div class='flex items-center gap-2'>
+            <Icon name='material-symbols:home-outline-rounded' size={24} />
+          </div>
+        </Link>
         <Link
           href='/archive'
           underline={false}
-          subClass='rounded-sm px-4 py-2 hover:bg-[var(--color-accent-soft)]'
+          subClass='rounded-sm p-2 hover:bg-[var(--color-accent-soft)]'
+          aria-label="Archive"
           >Archive</Link
         >
+      </nav>
+      <nav class='flex items-center justify-between gap-2 px-2'>
+        <Link
+          href='https://www.last.fm/user/AjunieZeng'
+          external={true}
+          underline={false}
+          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          aria-label='last.fm'
+        >
+          <div class='flex items-center'>
+            <Icon name='simple-icons:lastdotfm' size={18} />
+          </div>
+        </Link>
+        <Link
+          href='https://steamcommunity.com/profiles/76561198819216883/'
+          external={true}
+          underline={false}
+          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          aria-label='Steam'
+        >
+          <div class='flex items-center'>
+            <Icon name='simple-icons:steam' size={18} />
+          </div>
+        </Link>
+        <Link
+          href='https://bsky.app/profile/ajunie.com'
+          external={true}
+          underline={false}
+          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          aria-label='BlueSky'
+        >
+          <div class='flex items-center'>
+            <Icon name='simple-icons:bluesky' size={18} />
+          </div>
+        </Link>
+        <Link
+          href='https://github.com/ajuniezeng'
+          external={true}
+          underline={false}
+          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          aria-label='GitHub'
+        >
+          <div class='flex items-center'>
+            <Icon name='simple-icons:github' size={18} />
+          </div>
+        </Link>
+        <Link
+          href='mailto:contact@ajunie.com'
+          external={true}
+          underline={false}
+          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          aria-label='Email'
+        >
+          <div class='flex items-center'>
+            <Icon name='material-symbols:mail' size={20} />
+          </div>
+        </Link>
         <ThemeToggle client:idle />
       </nav>
     </div>
