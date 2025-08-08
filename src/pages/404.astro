@@ -3,12 +3,19 @@ import Container from '@/components/Container.astro';
 import Title from '@/components/Title.astro';
 import { SITE } from '@/constants';
 import Layout from '@/layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <Layout title='404 Not Found' description={SITE.DESCRIPTION}>
   <Container>
     <div class='flex min-h-[80vh] flex-col items-center justify-center'>
       <Title>Code: 404, Mission Unknown. <br />What are you doing here?</Title>
+      <a href='/'>
+        <button class='btn flex items-end justify-center gap-2 p-2'>
+          <Icon name='material-symbols:keyboard-return-rounded' />
+          Return
+        </button>
+      </a>
     </div>
   </Container>
 </Layout>

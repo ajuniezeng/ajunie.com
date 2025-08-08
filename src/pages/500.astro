@@ -3,12 +3,35 @@ import Container from '@/components/Container.astro';
 import Title from '@/components/Title.astro';
 import { SITE } from '@/constants';
 import Layout from '@/layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  error: unknown;
+}
+
+const { error } = Astro.props;
+const ENV = process.env.ENV;
 ---
 
 <Layout title='500 Error' description={SITE.DESCRIPTION}>
   <Container>
     <div class='flex min-h-[80vh] flex-col items-center justify-center'>
-      <Title>Code: 500, Mission Failed. <br />Good luck next time :)</Title>
+      <Title
+        >Code: 500, Mission Failed. {
+          error instanceof Error && ENV === 'dev'
+            ? `Special Message: ${error.message}`
+            : ''
+        }
+        <br />Good luck next time :)</Title
+      >
+      <a href='/'>
+        <button
+          class='flex cursor-pointer items-end justify-center gap-2 rounded-md border border-neutral-200 bg-white p-2 shadow-sm hover:bg-amber-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-amber-900/30'
+        >
+          <Icon name='material-symbols:keyboard-return-rounded' />
+          Return
+        </button>
+      </a>
     </div>
   </Container>
 </Layout>

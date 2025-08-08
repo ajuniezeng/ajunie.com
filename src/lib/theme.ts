@@ -28,14 +28,14 @@ export function applyTheme(theme: Theme) {
       '(prefers-color-scheme: dark)',
     ).matches;
     if (systemPrefersDark) {
-      root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
     } else {
-      root.classList.remove('dark');
+      root.setAttribute('data-theme', '');
     }
   } else if (theme === 'dark') {
-    root.classList.add('dark');
+    root.setAttribute('data-theme', 'dark');
   } else {
-    root.classList.remove('dark');
+    root.setAttribute('data-theme', '');
   }
 }
 

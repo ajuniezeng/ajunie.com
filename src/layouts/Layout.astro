@@ -21,14 +21,52 @@ const { title, description, image } = Astro.props;
       description={description}
       image={image}
     />
-    <script>
-      import { initTheme } from '@/lib/theme';
-      initTheme();
+    <script is:inline data-astro-rerun>
+      (() => {
+        const KEY = 'theme';
+        const valid = (theme) =>
+          theme === 'light' || theme === 'dark' || theme === 'system';
+        const get = () => {
+          try {
+            return localStorage.getItem(KEY);
+          } catch {
+            return null;
+          }
+        };
+        const apply = (theme) => {
+          const root = document.documentElement;
+          if (theme === 'system') {
+            const prefersDark = window.matchMedia(
+              '(prefers-color-scheme: dark)',
+            ).matches;
+            root.setAttribute('data-theme', prefersDark ? 'dark' : '');
+          } else if (theme === 'dark') {
+            root.setAttribute('data-theme', 'dark');
+          } else {
+            root.setAttribute('data-theme', '');
+          }
+        };
+        const current = valid(get()) ? get() : 'system';
+        apply(current);
+
+        const reapply = () => apply(valid(get()) ? get() : 'system');
+        // Ensure theme is re-applied after SPA swaps
+        document.addEventListener('astro:after-swap', reapply);
+        // If something strips the attribute, restore it
+        const mutationObserver = new MutationObserver(() => {
+          if (document.documentElement.getAttribute('data-theme') == null)
+            reapply();
+        });
+        mutationObserver.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['data-theme'],
+        });
+      })();
     </script>
   </head>
   <body>
     <div
-      class='font-noto-serif box-border flex h-fit min-h-screen flex-col bg-neutral-50 text-gray-900 antialiased dark:bg-gray-900 dark:text-gray-100'
+      class='font-text-serif box-border flex h-fit min-h-screen flex-col antialiased'
     >
       <Header />
       <main class='flex-grow'>
