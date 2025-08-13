@@ -45,7 +45,7 @@ export default function ThemeToggle() {
     <div className='relative' ref={rootRef}>
       <button
         id='theme-toggle'
-        className='flex cursor-pointer items-center justify-center rounded-sm p-2 transition-colors duration-300 ease-in-out hover:bg-[var(--color-accent-soft)]'
+        className='hover:bg-accent-soft flex cursor-pointer items-center justify-center rounded-sm p-2 transition-colors duration-300 ease-in-out'
         aria-label='Toggle theme'
         title='Toggle theme'
         onClick={(event) => {
@@ -93,7 +93,7 @@ export default function ThemeToggle() {
       >
         <button
           data-theme-option='light'
-          className='flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm hover:bg-[var(--color-accent-soft)]'
+          className='hover:bg-accent-soft flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm'
           onClick={() => {
             updateTheme('light');
             setOpen(false);
@@ -108,7 +108,7 @@ export default function ThemeToggle() {
         </button>
         <button
           data-theme-option='dark'
-          className='flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm hover:bg-[var(--color-accent-soft)]'
+          className='hover:bg-accent-soft flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm'
           onClick={() => {
             updateTheme('dark');
             setOpen(false);
@@ -123,7 +123,7 @@ export default function ThemeToggle() {
         </button>
         <button
           data-theme-option='system'
-          className='flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm hover:bg-[var(--color-accent-soft)]'
+          className='hover:bg-accent-soft flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-left text-sm'
           onClick={() => {
             updateTheme('system');
             setOpen(false);

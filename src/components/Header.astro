@@ -6,8 +6,7 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <header
-  class='sticky top-0 z-10 backdrop-blur-md'
-  style='background-color: color-mix(in srgb, var(--color-background) 80%, transparent)'
+  class='bg-background/80 sticky top-0 z-10 backdrop-blur-md'
   transition:persist
 >
   <Container>
@@ -16,8 +15,8 @@ import { Icon } from 'astro-icon/components';
         <Link
           href='/'
           underline={false}
-          subClass='rounded-sm p-2 hover:bg-[var(--color-accent-soft)]'
-          aria-label="Index"
+          subClass='rounded-sm p-2 hover:bg-accent-soft'
+          aria-label='Index'
         >
           <div class='flex items-center gap-2'>
             <Icon name='material-symbols:home-outline-rounded' size={24} />
@@ -26,9 +25,8 @@ import { Icon } from 'astro-icon/components';
         <Link
           href='/archive'
           underline={false}
-          subClass='rounded-sm p-2 hover:bg-[var(--color-accent-soft)]'
-          aria-label="Archive"
-          >Archive</Link
+          subClass='rounded-sm p-2 hover:bg-accent-soft'
+          aria-label='Archive'>Archive</Link
         >
       </nav>
       <nav class='flex items-center justify-between gap-2 px-2'>
@@ -36,7 +34,7 @@ import { Icon } from 'astro-icon/components';
           href='https://www.last.fm/user/AjunieZeng'
           external={true}
           underline={false}
-          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          subClass='rounded-sm p-1 hover:bg-accent-soft'
           aria-label='last.fm'
         >
           <div class='flex items-center'>
@@ -47,7 +45,7 @@ import { Icon } from 'astro-icon/components';
           href='https://steamcommunity.com/profiles/76561198819216883/'
           external={true}
           underline={false}
-          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          subClass='rounded-sm p-1 hover:bg-accent-soft'
           aria-label='Steam'
         >
           <div class='flex items-center'>
@@ -58,7 +56,7 @@ import { Icon } from 'astro-icon/components';
           href='https://bsky.app/profile/ajunie.com'
           external={true}
           underline={false}
-          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          subClass='rounded-sm p-1 hover:bg-accent-soft'
           aria-label='BlueSky'
         >
           <div class='flex items-center'>
@@ -69,7 +67,7 @@ import { Icon } from 'astro-icon/components';
           href='https://github.com/ajuniezeng'
           external={true}
           underline={false}
-          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          subClass='rounded-sm p-1 hover:bg-accent-soft'
           aria-label='GitHub'
         >
           <div class='flex items-center'>
@@ -80,7 +78,7 @@ import { Icon } from 'astro-icon/components';
           href='mailto:contact@ajunie.com'
           external={true}
           underline={false}
-          subClass='rounded-sm p-1 hover:bg-[var(--color-accent-soft)]'
+          subClass='rounded-sm p-1 hover:bg-accent-soft'
           aria-label='Email'
         >
           <div class='flex items-center'>
