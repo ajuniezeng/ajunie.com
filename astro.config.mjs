@@ -18,6 +18,11 @@ export default defineConfig({
     },
   },
 
+  i18n: {
+    locales: ['en', 'cn'],
+    defaultLocale: 'en',
+  },
+
   devToolbar: {
     enabled: true,
   },

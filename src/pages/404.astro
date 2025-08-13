@@ -2,18 +2,26 @@
 import Container from '@/components/Container.astro';
 import Title from '@/components/Title.astro';
 import { SITE } from '@/constants';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Layout from '@/layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
 ---
 
 <Layout title='404 Not Found' description={SITE.DESCRIPTION}>
   <Container>
     <div class='flex min-h-[80vh] flex-col items-center justify-center'>
-      <Title>Code: 404, Mission Unknown. <br />What are you doing here?</Title>
-      <a href='/' aria-label='Return to index'>
+      <Title
+        >Code: 404{translation('404.title')}
+        <br />{translation('404.subtitle')}</Title
+      >
+      <a href={getRelativeLocaleUrl(lang, '/')} aria-label='Return to index'>
         <button class='btn flex items-end justify-center gap-2 p-2'>
           <Icon name='material-symbols:keyboard-return-rounded' />
-          Return
+          {translation('error.return')}
         </button>
       </a>
     </div>

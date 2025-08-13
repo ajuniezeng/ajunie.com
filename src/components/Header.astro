@@ -3,6 +3,12 @@ import Container from '@/components/Container.astro';
 import Link from './Link.astro';
 import ThemeToggle from './ThemeToggle';
 import { Icon } from 'astro-icon/components';
+import LangToggle from './LangToggle';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
 ---
 
 <header
@@ -13,7 +19,7 @@ import { Icon } from 'astro-icon/components';
     <div class='flex items-center justify-between gap-4 py-4'>
       <nav class='flex items-center justify-between gap-3 px-2'>
         <Link
-          href='/'
+          href={getRelativeLocaleUrl(lang, '/')}
           underline={false}
           subClass='rounded-sm p-2 hover:bg-accent-soft'
           aria-label='Index'
@@ -23,10 +29,10 @@ import { Icon } from 'astro-icon/components';
           </div>
         </Link>
         <Link
-          href='/archive'
+          href={getRelativeLocaleUrl(lang, '/archive')}
           underline={false}
           subClass='rounded-sm p-2 hover:bg-accent-soft'
-          aria-label='Archive'>Archive</Link
+          aria-label='Archive'>{translation('nav.archive')}</Link
         >
       </nav>
       <nav class='flex items-center justify-between gap-2 px-2'>
@@ -85,7 +91,8 @@ import { Icon } from 'astro-icon/components';
             <Icon name='material-symbols:mail' size={20} />
           </div>
         </Link>
-        <ThemeToggle client:idle />
+        <ThemeToggle client:only />
+        <LangToggle client:only />
       </nav>
     </div>
   </Container>

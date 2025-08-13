@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { getTheme, setTheme, applyTheme, type Theme } from '@/lib/theme';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 export default function ThemeToggle() {
   const [theme, setThemeState] = useState<Theme>('system');
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+
+  const lang = getLangFromUrl(new URL(window.location.href));
+  const translation = useTranslations(lang);
 
   // Initialize from storage and apply
   useEffect(() => {
@@ -104,7 +108,7 @@ export default function ThemeToggle() {
             width={16}
             height={16}
           />
-          Light
+          {translation('nav.themeToggle.light')}
         </button>
         <button
           data-theme-option='dark'
@@ -119,7 +123,7 @@ export default function ThemeToggle() {
             width={16}
             height={16}
           />
-          Dark
+          {translation('nav.themeToggle.dark')}
         </button>
         <button
           data-theme-option='system'
@@ -134,7 +138,7 @@ export default function ThemeToggle() {
             width={16}
             height={16}
           />
-          System
+          {translation('nav.themeToggle.system')}
         </button>
       </div>
     </div>

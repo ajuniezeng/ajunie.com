@@ -134,9 +134,4 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
   }
-
-  /* Muted text helper */
-  .text-muted {
-    color: var(--color-text-muted);
-  }
 }

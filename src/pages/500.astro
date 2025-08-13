@@ -2,8 +2,10 @@
 import Container from '@/components/Container.astro';
 import Title from '@/components/Title.astro';
 import { SITE } from '@/constants';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Layout from '@/layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
   error: unknown;
@@ -11,25 +13,27 @@ interface Props {
 
 const { error } = Astro.props;
 const ENV = process.env.ENV;
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
 ---
 
 <Layout title='500 Error' description={SITE.DESCRIPTION}>
   <Container>
     <div class='flex min-h-[80vh] flex-col items-center justify-center'>
       <Title
-        >Code: 500, Mission Failed. {
+        >Code: 500{translation('500.title')}
+        {
           error instanceof Error && ENV === 'dev'
             ? `Special Message: ${error.message}`
             : ''
         }
-        <br />Good luck next time :)</Title
+        <br />{translation('500.subtitle')}</Title
       >
-      <a href='/' aria-label='Return to index'>
-        <button
-          class='flex cursor-pointer items-end justify-center gap-2 rounded-md border border-neutral-200 bg-white p-2 shadow-sm hover:bg-amber-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-amber-900/30'
-        >
+      <a href={getRelativeLocaleUrl(lang, '/')} aria-label='Return to index'>
+        <button class='btn flex items-end justify-center gap-2 p-2'>
           <Icon name='material-symbols:keyboard-return-rounded' />
-          Return
+          {translation('error.return')}
         </button>
       </a>
     </div>

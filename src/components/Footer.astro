@@ -1,8 +1,11 @@
 ---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Container from './Container.astro';
 
 const currentYear = new Date().getFullYear();
 const yearString = currentYear === 2025 ? '2025' : `2025 - ${currentYear}`;
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
 ---
 
 <footer class='py-4'>
@@ -11,7 +14,7 @@ const yearString = currentYear === 2025 ? '2025' : `2025 - ${currentYear}`;
       <div class='text-xs'>
         Copyright &copy; {yearString} Ajunie Zeng. All Rights Reserved.
       </div>
-      <div class='text-muted text-[8px]'>(I don't drink coffee)</div>
+      <div class='text-muted text-[8px]'>{translation('footer.subtitle')}</div>
     </div>
   </Container>
 </footer>

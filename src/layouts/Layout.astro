@@ -11,10 +11,11 @@ type Props = {
 };
 
 const { title, description, image } = Astro.props;
+const lang = Astro.currentLocale;
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang={lang}>
   <head>
     <Head
       title={`${title} | ${SITE.TITLE}`}
