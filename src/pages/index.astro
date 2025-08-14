@@ -27,14 +27,21 @@ import Link from '@/components/Link.astro';
       <section>
         <h2>Who am I?</h2>
         <p>
-          I love programming! Right now I'm still a college student whose major
-          is Software Engineer, but I'd like to explore all kinds of things.
-          Drop me an email or just text me on any platforms if there is any
-          interesting thing you want to share with me! I'm super open minded.
-          You can find me nearly on every social media (The links I provided are
-          limited. But if you want to dig it out, you will find me tho).
+          I'm just a guy in love programming and gaming. Right now I'm still an
+          inexperienced college student whose major is Software Engineer, but
+          I'd like to explore all kinds of things. Drop me an <Link
+            href='mailto:contact@ajunie.com'>email</Link
+          >
+          or just text me on any platforms if there is any interesting things you
+          want to share with me! I'm super open minded. You can find me nearly on
+          every social media (The links I provided are limited. But if you want to
+          dig it out, you will find me tho). Check out my <Link
+            href='https://steamcommunity.com/profiles/76561198819216883/'
+            external={true}>Steam</Link
+          > account to play games with me (I still haven't finished <em
+            >It Takes Two</em
+          >)!
         </p>
-        <h3>Programming Languages</h3>
         <p>
           Can I describe myself as a Web Developer? I'm just into
           JavaScript/TypeScript and of course a little Rust. My goal is to
@@ -43,12 +50,13 @@ import Link from '@/components/Link.astro';
             href='https://bevy.org/'
             external={true}>Bevy</Link
           >, a gaming engine, written in Rust, but I'm still exploring this cool
-          engine and learn such a great language.
+          engine and learning such a great language.
         </p>
       </section>
     </Article>
   </Container>
 </Layout>
+
 <style>
   .name {
     text-decoration-skip-ink: none;

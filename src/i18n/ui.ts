@@ -16,7 +16,7 @@ export const UI = {
     '500.title': ', Mission Failed.',
     '500.subtitle': 'What are you doing here?',
     'error.return': 'Return',
-    'footer.subtitle': "(I don't drink coffee)",
+    'footer.subtitle': "(btw I don't drink coffee, LGBTQ+ 🏳️‍🌈 friendly)",
   },
   cn: {
     'nav.themeToggle.light': '浅色模式',
@@ -28,6 +28,6 @@ export const UI = {
     '500.title': '，远征失败。',
     '500.subtitle': '祝你下次好运 :)',
     'error.return': '主页',
-    'footer.subtitle': '(我不喝咖啡)',
+    'footer.subtitle': '(不喝咖啡谢谢，支持还不反对 LGBTQ+ 🏳️‍🌈)',
   },
 } as const;

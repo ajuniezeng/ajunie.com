@@ -56,7 +56,7 @@
     }
 
     a {
-      @apply decoration-accent-underline hover:decoration-accent-underline-hover break-words underline decoration-[0.45em] -underline-offset-[0.25em];
+      @apply decoration-accent-underline hover:decoration-accent-underline-hover inline-block break-words underline decoration-[0.45em] -underline-offset-[0.25em] transition-colors duration-300 ease-in-out;
       text-decoration-skip-ink: none;
     }
 
