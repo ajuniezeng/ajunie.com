@@ -1,7 +1,10 @@
 ---
 import Container from '@/components/Container.astro';
+import Article from '@/components/Article.astro';
 import { SITE } from '@/constants';
+import { Code } from 'astro-expressive-code/components';
 import Layout from '@/layouts/Layout.astro';
+import Link from '@/components/Link.astro';
 ---
 
 <Layout title='Home' description={SITE.DESCRIPTION}>
@@ -20,9 +23,32 @@ import Layout from '@/layouts/Layout.astro';
         </p>
       </div>
     </div>
+    <Article>
+      <section>
+        <h2>Who am I?</h2>
+        <p>
+          I love programming! Right now I'm still a college student whose major
+          is Software Engineer, but I'd like to explore all kinds of things.
+          Drop me an email or just text me on any platforms if there is any
+          interesting thing you want to share with me! I'm super open minded.
+          You can find me nearly on every social media (The links I provided are
+          limited. But if you want to dig it out, you will find me tho).
+        </p>
+        <h3>Programming Languages</h3>
+        <p>
+          Can I describe myself as a Web Developer? I'm just into
+          JavaScript/TypeScript and of course a little Rust. My goal is to
+          become a full stack developer. I think Web Programming is really cool.
+          As for Rust, I'm interested in <Link
+            href='https://bevy.org/'
+            external={true}>Bevy</Link
+          >, a gaming engine, written in Rust, but I'm still exploring this cool
+          engine and learn such a great language.
+        </p>
+      </section>
+    </Article>
   </Container>
 </Layout>
-
 <style>
   .name {
     text-decoration-skip-ink: none;

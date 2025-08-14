@@ -6,10 +6,12 @@ import icon from 'astro-icon';
 
 import react from '@astrojs/react';
 
+import expressiveCode from 'astro-expressive-code';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ajunie.com',
-  integrations: [icon(), react()],
+  integrations: [icon(), react(), expressiveCode()],
 
   vite: {
     plugins: [tailwindcss()],

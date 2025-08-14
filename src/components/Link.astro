@@ -8,13 +8,7 @@ interface Props {
   subClass?: string;
 }
 
-const {
-  href,
-  external,
-  underline = true,
-  subClass = '',
-  ...rest
-} = Astro.props;
+const { href, external, subClass = '', ...rest } = Astro.props;
 ---
 
 <a
@@ -22,7 +16,6 @@ const {
   target={external ? '_blank' : '_self'}
   class={cn(
     'inline-block link transition-colors duration-300 ease-in-out',
-    underline && 'underline underline-offset-2',
     subClass,
   )}
   {...rest}

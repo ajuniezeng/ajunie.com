@@ -1,0 +1,184 @@
+@reference './global.css';
+
+@layer base {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply wrap-break-word;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply text-balance;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+}
+
+@layer components {
+  .prose {
+    @apply font-text-serif space-y-3;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      @apply text-text/90 scroll-mt-32;
+    }
+
+    h1 {
+      @apply mt-8 mb-6 text-2xl font-bold;
+    }
+
+    h2 {
+      @apply mt-6 mb-3 text-xl font-bold;
+    }
+
+    h3 {
+      @apply mt-4 mb-3 text-lg font-bold;
+    }
+
+    h4 {
+      @apply my-3 text-lg font-medium;
+    }
+
+    h5 {
+      @apply my-2 font-medium;
+    }
+
+    a {
+      @apply decoration-accent-underline hover:decoration-accent-underline-hover break-words underline decoration-[0.45em] -underline-offset-[0.25em];
+      text-decoration-skip-ink: none;
+    }
+
+    p {
+      @apply my-4 text-base;
+    }
+
+    strong {
+      @apply text-text font-medium;
+    }
+
+    ul {
+      @apply marker:text-text/30 my-4 ms-4 list-disc;
+    }
+
+    ol {
+      @apply marker:text-text/30 my-4 ms-4 list-decimal;
+    }
+
+    li {
+      @apply my-2 ps-1;
+    }
+
+    ul ul,
+    ol ol,
+    ul ol,
+    ol ul {
+      @apply my-2 ms-4;
+    }
+
+    code {
+      @apply bg-accent-contrast/15 text-text/80 font-text-mono relative rounded-sm px-1 font-medium break-words;
+    }
+
+    blockquote {
+      @apply text-text-muted my-7 border-s-4 ps-4 text-sm;
+    }
+
+    hr {
+      @apply border-border my-8 border-t-2;
+    }
+
+    /* Tables */
+    table {
+      @apply my-6 w-full border-collapse;
+    }
+
+    caption {
+      @apply text-text-muted mb-3 text-left text-sm font-medium;
+    }
+
+    th {
+      @apply border-border bg-surface-2 text-text border-b-2 px-4 py-3 text-left text-sm font-semibold;
+    }
+
+    td {
+      @apply border-border border-b px-4 py-3 text-sm;
+    }
+
+    tbody tr:hover {
+      @apply bg-surface-2/50;
+    }
+
+    /* Figures */
+    figure {
+      @apply my-6;
+    }
+
+    figcaption {
+      @apply text-text-muted mt-2 text-center text-sm;
+    }
+
+    /* Images */
+    img {
+      @apply h-auto max-w-full rounded-lg;
+    }
+
+    /* Text formatting */
+    mark {
+      @apply bg-accent-soft text-text rounded-sm px-1;
+    }
+
+    del {
+      @apply text-text-muted line-through;
+    }
+
+    ins {
+      @apply text-accent bg-accent-soft rounded-sm px-1 no-underline;
+    }
+
+    sub,
+    sup {
+      @apply relative text-xs;
+    }
+
+    sub {
+      @apply -bottom-1;
+    }
+
+    sup {
+      @apply -top-1;
+    }
+
+    abbr {
+      @apply border-text-muted cursor-help border-b border-dotted;
+    }
+
+    small {
+      @apply text-text-muted text-sm;
+    }
+
+    cite {
+      @apply text-text-muted not-italic;
+    }
+
+    /* Pre-formatted text */
+    pre {
+      @apply my-4 overflow-x-auto;
+    }
+
+    .lead {
+      @apply text-text-muted text-[1.1rem];
+    }
+  }
+}
