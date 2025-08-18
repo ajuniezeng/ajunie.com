@@ -1,0 +1,28 @@
+---
+import Container from '@/components/Container.astro';
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
+import Article from '@/components/Article.astro';
+import Title from '@/components/Title.astro';
+
+export async function getStaticPaths() {
+  return (await getCollection('blog')).map((item) => {
+    return { params: { id: item.id }, props: item };
+  });
+}
+
+const post = Astro.props;
+const id = Astro.params.id;
+
+const { Content, headings } = await render(post);
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <Container>
+    <Article>
+      <Title updated={post.data.date}>{post.data.title}</Title>
+      <Content />
+    </Article>
+  </Container>
+</Layout>

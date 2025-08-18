@@ -1,7 +1,6 @@
 ---
 import Container from '@/components/Container.astro';
 import Title from '@/components/Title.astro';
-import { SITE } from '@/constants';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Layout from '@/layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
@@ -18,18 +17,20 @@ const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
 ---
 
-<Layout title='500 Error' description={SITE.DESCRIPTION}>
+<Layout title='500 Error'>
   <Container>
     <div class='flex min-h-[80vh] flex-col items-center justify-center'>
       <Title
         >Code: 500{translation('500.title')}
+        <br />{translation('500.subtitle')}</Title
+      >
+      <p class="text-center mb-5">
         {
           error instanceof Error && ENV === 'dev'
             ? `Special Message: ${error.message}`
             : ''
         }
-        <br />{translation('500.subtitle')}</Title
-      >
+      </p>
       <a href={getRelativeLocaleUrl(lang, '/')} aria-label='Return to index'>
         <button class='btn flex items-end justify-center gap-2 p-2'>
           <Icon name='material-symbols:keyboard-return-rounded' />

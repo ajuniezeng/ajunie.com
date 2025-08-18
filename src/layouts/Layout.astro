@@ -6,15 +6,22 @@ import Head from '@/components/Head.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import { SITE } from '@/constants';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 type Props = {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
 };
 
-const { title, description, image } = Astro.props;
-const lang = Astro.currentLocale;
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+
+const {
+  title,
+  description = translation('layout.defaultDescription'),
+  image,
+} = Astro.props;
 ---
 
 <!doctype html>

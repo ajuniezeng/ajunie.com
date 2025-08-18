@@ -1,5 +1,7 @@
 ---
 import { format } from 'date-fns';
+import { Icon } from 'astro-icon/components';
+
 interface Props {
   updated?: Date;
 }
@@ -8,11 +10,12 @@ const { updated } = Astro.props;
 const date = updated ? format(updated, 'yyyy-MM-dd') : '';
 ---
 
-<h1 class='mt-2 mb-10 text-center text-3xl font-bold'>
+<h1 class='mt-2 mb-10 text-center text-2xl font-bold'>
   <slot />
   {
     updated ? (
-      <div class='mt-4 text-sm font-normal'>
+      <div class='text-text-muted mt-4 flex items-center justify-center gap-1 text-sm font-normal'>
+        <Icon name='material-symbols:calendar-clock' />
         Updated: <time datetime={date}>{date}</time>
       </div>
     ) : null

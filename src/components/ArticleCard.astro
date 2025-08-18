@@ -1,0 +1,23 @@
+---
+import { format } from 'date-fns';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  updated: Date;
+  href: string;
+}
+
+const { updated, href } = Astro.props;
+---
+
+<a
+  href={href}
+  class='card article-card my-3 flex w-full items-center justify-between px-4 py-2'
+>
+  <slot />
+  <div class='text-text-muted flex items-center justify-center gap-1'>
+    <Icon name='material-symbols:calendar-clock' />{
+      format(updated, 'yyyy-MM-dd')
+    }
+  </div>
+</a>
