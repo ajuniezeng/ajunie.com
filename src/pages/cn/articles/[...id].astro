@@ -7,7 +7,7 @@ import Title from '@/components/Title.astro';
 import { getPosts } from '@/lib/utils';
 
 export async function getStaticPaths() {
-  return (await getPosts('en')).map((item) => {
+  return (await getPosts('cn')).map((item) => {
     return { params: { id: item.id }, props: item };
   });
 }

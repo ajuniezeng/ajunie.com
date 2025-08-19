@@ -13,6 +13,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 import rehypeDocument from 'rehype-document';
+import rehypeFigure from '@microflash/rehype-figure';
 
 import mdx from '@astrojs/mdx';
 
@@ -80,6 +81,7 @@ export default defineConfig({
         },
       ],
       rehypeKatex,
+      rehypeFigure,
     ],
     remarkPlugins: [remarkMath],
   },

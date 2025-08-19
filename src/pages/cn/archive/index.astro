@@ -1,0 +1,37 @@
+---
+import ArticleCard from '@/components/ArticleCard.astro';
+import Container from '@/components/Container.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import Layout from '@/layouts/Layout.astro';
+import { getPosts } from '@/lib/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+
+const posts = await getPosts(lang);
+---
+
+<Layout
+  title={translation('archive.title')}
+  description={translation('archive.description')}
+>
+  <Container>
+    <ul>
+      {
+        posts.map((item) => {
+          return (
+            <li>
+              <ArticleCard
+                href={getRelativeLocaleUrl(lang, `/articles/${item.id}`)}
+                updated={item.data.date}
+              >
+                {item.data.title}
+              </ArticleCard>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </Container>
+</Layout>
