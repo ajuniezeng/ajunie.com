@@ -1,22 +1,26 @@
 ---
 import { format } from 'date-fns';
 import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 interface Props {
-  updated?: Date;
+  modified?: Date;
 }
 
-const { updated } = Astro.props;
-const date = updated ? format(updated, 'yyyy-MM-dd') : '';
+const { modified } = Astro.props;
+const date = modified ? format(modified, 'yyyy-MM-dd') : '';
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
 ---
 
 <h1 class='mt-2 mb-10 text-center text-2xl font-bold'>
   <slot />
   {
-    updated ? (
+    modified ? (
       <div class='text-text-muted mt-4 flex items-center justify-center gap-1 text-sm font-normal'>
         <Icon name='material-symbols:calendar-clock' />
-        Updated: <time datetime={date}>{date}</time>
+        {translation('title.lastModified')} <time datetime={date}>{date}</time>
       </div>
     ) : null
   }

@@ -7,7 +7,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export async function getPosts(lang: string) {
+  console.log(lang);
   return (await getCollection('blog'))
-    .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
-    .filter((item) => item.data.langauge === lang);
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .filter((item) => item.data.language == lang);
 }

@@ -7,7 +7,7 @@
   h3,
   h4,
   h5 {
-    @apply hyphens-auto wrap-break-word;
+    @apply wrap-break-word hyphens-auto;
   }
 
   h1,
@@ -65,7 +65,7 @@
     }
 
     strong {
-      @apply text-text font-medium;
+      @apply text-text font-semibold;
     }
 
     ul {

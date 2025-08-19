@@ -21,7 +21,7 @@ const { Content, headings } = await render(post);
 <Layout title={post.data.title} description={post.data.description}>
   <Container>
     <Article>
-      <Title updated={post.data.date}>{post.data.title}</Title>
+      <Title modified={post.data.date}>{post.data.title}</Title>
       <Content />
     </Article>
   </Container>
