@@ -1,6 +1,6 @@
 export const LANGUAGES = {
   en: 'English',
-  cn: '简体中文',
+  zh: '简体中文',
 };
 
 export const DEFAULT_LANG = 'en';
@@ -22,7 +22,7 @@ export const UI = {
     'archive.title': 'Archive',
     'archive.description': 'You can find all the articles here',
   },
-  cn: {
+  zh: {
     'layout.defaultDescription': 'Ajunie 自留地',
     'nav.themeToggle.light': '浅色模式',
     'nav.themeToggle.dark': '深色模式',

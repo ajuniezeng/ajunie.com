@@ -17,7 +17,7 @@ export default function LangToggle() {
     console.log(currentPathname);
 
     // Remove existing language prefix if present
-    const pathWithoutLang = currentPathname.replace(/^\/(cn|en)(\/|$)/, '/');
+    const pathWithoutLang = currentPathname.replace(/^\/(zh|en)(\/|$)/, '/');
     const cleanPath = pathWithoutLang === '/' ? '' : pathWithoutLang;
 
     if (lang === 'en') {
@@ -97,17 +97,17 @@ export default function LangToggle() {
         </button>
         <button
           className={`hover:bg-accent-soft flex w-full cursor-pointer items-center gap-2 rounded-md mt-0.5 px-3 py-2 text-left text-sm ${
-            currentLang === 'cn' ? 'bg-accent-soft' : ''
+            currentLang === 'zh' ? 'bg-accent-soft' : ''
           }`}
           onClick={() => {
-            handleClick('cn');
+            handleClick('zh');
             setOpen(false);
           }}
         >
-          {currentLang === 'cn' && (
+          {currentLang === 'zh' && (
             <Icon icon='material-symbols:check' width={16} height={16} />
           )}
-          <span className={currentLang !== 'cn' ? 'ml-6' : ''}>简体中文</span>
+          <span className={currentLang !== 'zh' ? 'ml-6' : ''}>简体中文</span>
         </button>
       </div>
     </div>

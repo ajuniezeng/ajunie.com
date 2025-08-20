@@ -6,8 +6,9 @@ import type { APIContext } from 'astro'
 
 export async function GET(context: APIContext) {
   try {
-    const posts = await getPosts('cn');
-    const translation = useTranslations('cn');
+    const lang = 'zh';
+    const posts = await getPosts(lang);
+    const translation = useTranslations(lang);
 
     return rss({
       title: SITE.TITLE,
@@ -17,7 +18,7 @@ export async function GET(context: APIContext) {
         title: post.data.title,
         description: post.data.description,
         pubDate: post.data.date,
-        link: `/cn/articles/${post.id}/`,
+        link: `/${lang}/articles/${post.id}/`,
       })),
     })
   } catch (error) {
