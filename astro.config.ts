@@ -8,7 +8,7 @@ import react from '@astrojs/react';
 
 import expressiveCode from 'astro-expressive-code';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
-import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
@@ -20,6 +20,7 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ajunie.com',
+  compressHTML: true,
   integrations: [
     icon(),
     react(),
@@ -65,24 +66,26 @@ export default defineConfig({
 
   markdown: {
     syntaxHighlight: false,
-    rehypePlugins: [
-      [
-        rehypeDocument,
-        {
-          css: 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css',
-        },
+    processor: unified({
+      rehypePlugins: [
+        [
+          rehypeDocument,
+          {
+            css: 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css',
+          },
+        ],
+        rehypeHeadingIds,
+        [
+          rehypeExternalLinks,
+          {
+            target: '_blank',
+            rel: ['nofollow', 'noopener', 'noreferrer'],
+          },
+        ],
+        rehypeKatex,
+        rehypeFigure,
       ],
-      rehypeHeadingIds,
-      [
-        rehypeExternalLinks,
-        {
-          target: '_blank',
-          rel: ['nofollow', 'noopener', 'noreferrer'],
-        },
-      ],
-      rehypeKatex,
-      rehypeFigure,
-    ],
-    remarkPlugins: [remarkMath],
+      remarkPlugins: [remarkMath],
+    }),
   },
 });
